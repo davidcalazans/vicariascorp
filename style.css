@@ -1,0 +1,661 @@
+/* Configuração Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Fixo e Preto - Altura expandida para dar destaque máximo à logo horizontal */
+.header-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px; /* Reduzido para um perfil mais fino e moderno */
+    background-color: #000000;
+    color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container-nav {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo Desktop ajustada para a nova altura mais fina */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-img {
+    height: 50px; /* Ajustado proporcionalmente para caber perfeitamente no menu de 75px */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Logo Mobile no Header da gaveta */
+.logo-img-mobile {
+    height: 45px; 
+    object-fit: contain;
+}
+
+
+/* Menu Desktop */
+.nav-desktop .menu-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-desktop .menu-list > li > a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-desktop .menu-list > li > a:hover {
+    color: #d4af37; /* Detalhe dourado sofisticado para construção/marcenaria */
+}
+
+/* Submenu / Dropdown Desktop */
+.dropdown {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #111111;
+    min-width: 220px;
+    list-style: none;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.submenu li a:hover {
+    background-color: #222222;
+    color: #d4af37;
+}
+
+/* Botão Hambúrguer (Oculto no Desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Overlay (Gaveta da Direita para a Esquerda) */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicialmente escondido fora da tela à direita */
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mobile-overlay.active {
+    right: 0; /* Desliza para dentro da tela cobrindo tudo */
+}
+
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #222;
+}
+
+.logo-img-mobile {
+    height: 45px;
+    object-fit: contain;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.nav-mobile {
+    margin-top: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.nav-mobile ul {
+    list-style: none;
+}
+
+.nav-mobile li {
+    margin-bottom: 20px;
+}
+
+.mobile-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    transition: color 0.2s;
+}
+
+.mobile-link:hover {
+    color: #d4af37;
+}
+
+/* Submenu Mobile Expandido/Estilizado */
+.mobile-submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 15px;
+    display: none; /* Controlado via JS ou expandido por padrão se preferir */
+}
+
+.mobile-submenu.active {
+    display: block;
+}
+
+.mobile-submenu li {
+    margin-bottom: 12px;
+}
+
+.mobile-submenu .mobile-link {
+    font-size: 15px;
+    color: #cccccc;
+}
+
+/* Regra Responsiva para telas menores (Tablets e Celulares) */
+@media (max-width: 900px) {
+    .nav-desktop {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Seção Hero com Parallax */
+.hero-section {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('fundo-hero.webp'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Sombreamento Médio Preto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Sombreamento 60% preto */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero-logo {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.hero-slogan {
+    font-size: 3.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #d4af37; /* Dourado/Bronze para destaque */
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #fff;
+}
+
+/* Responsividade da Seção */
+@media (max-width: 768px) {
+    .hero-slogan {
+        font-size: 2rem;
+    }
+    .hero-logo {
+        max-width: 200px;
+    }
+}
+
+/* Seção de Transição */
+.section-transicao {
+    width: 100%;
+    padding: 80px 20px; /* Padding vertical generoso para dar destaque */
+    background-color: #ffffff; /* Fundo branco solicitado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container-texto {
+    max-width: 800px; /* Limita a largura do texto para melhor leitura */
+}
+
+.frase-destaque {
+    font-size: 2rem; /* Tamanho confortável para leitura */
+    color: #333333;
+    font-weight: 400;
+    line-height: 1.4;
+    font-style: italic; /* Texto em itálico */
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 768px) {
+    .frase-destaque {
+        font-size: 1.5rem; /* Ajuste suave para telas menores */
+    }
+    .section-transicao {
+        padding: 60px 20px;
+    }
+}
+
+.section-cards {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que os cards quebrem linha no mobile */
+}
+
+.card {
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px; /* Garante que não fiquem pequenos demais */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    color: #d4af37; /* Cor do seu ícone */
+}
+
+/* Ícone preenche o espaço da caixa */
+.icon-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Responsividade: No mobile, os cards empilham */
+@media (max-width: 768px) {
+    .card {
+        min-width: 100%;
+    }
+}
+
+/* Seção Endereço */
+.section-endereco {
+    width: 100%;
+    padding: 100px 20px;
+    background-color: #000000; /* Fundo preto solicitado */
+    color: #ffffff; /* Fonte branca solicitada */
+}
+
+.container-endereco {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* Responsivo para telas menores */
+}
+
+.info-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.titulo-secao {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.texto-endereco {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.subtitulo-horario {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #d4af37; /* Detalhe dourado corporativo */
+}
+
+.lista-horarios {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-horarios li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.lista-horarios li span {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Caixa do Mapa */
+.map-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Wrapper para manter o mapa proporcional e responsivo */
+.map-responsive {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Altura controlada para ser um mapa "pequeno" e elegante */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    .section-endereco {
+        padding: 60px 20px;
+    }
+    
+    .container-endereco {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .titulo-secao {
+        font-size: 1.8rem;
+    }
+
+    .map-responsive {
+        height: 250px; /* Altura ligeiramente menor em telas mobile */
+    }
+}
+
+/* Rodapé Fixo/Estático (Sem efeitos) */
+.footer-principal {
+    width: 100%;
+    background-color: #ffffff; /* Fundo branco solicitado */
+    padding: 30px 20px;
+    border-top: 1px solid #eaeaea;
+    position: relative; /* Garante que fica estático no fluxo da página */
+}
+
+.container-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 0.85rem; /* Letras pequenas */
+    color: #777777; /* Cinza médio */
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Seção de Serviços com Parallax */
+.section-servicos-parallax {
+    position: relative;
+    width: 100%;
+    padding: 100px 20px;
+    background-image: url('servicos.webp'); /* Substitua pela imagem de fundo desejada */
+    background-attachment: fixed; /* Efeito Parallax */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay sutil para garantir contraste */
+.servicos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Sombreamento leve */
+}
+
+.container-servicos {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Card Grande com Transparência e Blur (Glassmorphism) */
+.card-grande-servicos {
+    background: rgba(20, 20, 20, 0.65); /* Fundo preto levemente translúcido */
+    backdrop-filter: blur(12px); /* Efeito de desfoque elegante */
+    -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil refinada */
+    border-radius: 12px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-align: center;
+}
+
+.titulo-card-servicos {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Lista de Serviços Estilizada */
+.lista-servicos {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+.lista-servicos li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    border-left: 3px solid #d4af37; /* Detalhe dourado corporativo */
+    transition: all 0.3s ease;
+}
+
+.lista-servicos li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    .section-servicos-parallax {
+        padding: 60px 15px;
+    }
+
+    .card-grande-servicos {
+        padding: 30px 20px;
+    }
+
+    .titulo-card-servicos {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .lista-servicos {
+        grid-template-columns: 1fr; /* Uma coluna no mobile */
+    }
+}
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1);
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+/* Animação de Tremer (Shake) */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-14deg); }
+    45% { transform: rotate(10deg); }
+    60% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+    90% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Classe acionada via JavaScript para executar o tremor */
+.whatsapp-float.tremer {
+    animation: shake 0.6s ease-in-out;
+}
