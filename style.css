@@ -737,3 +737,119 @@ body {
         max-width: 100%;
     }
 }
+
+/* Container Geral */
+.carrossel-nativo-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.carrossel-nativo-titulo {
+  font-family: inherit;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Wrapper relativo para posicionar as setas por cima */
+.carrossel-wrapper-relativo {
+  position: relative;
+  width: 100%;
+}
+
+/* O Carrossel com Scroll Nativo */
+.carrossel-nativo {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 5px;
+}
+
+.carrossel-nativo::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Configuração dos Slides */
+.slide-nativo {
+  flex: 0 0 100%; /* Mobile: 1 por vez */
+  scroll-snap-align: start;
+}
+
+.slide-nativo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ESTILO DAS SETAS (Mobile e Desktop) */
+.seta-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo preto semi-transparente */
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.seta-carrossel:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.seta-esquerda {
+  left: 10px;
+}
+
+.seta-direita {
+  right: 10px;
+}
+
+/* Ajustes de clique para não mover o botão no active */
+.seta-carrossel:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* --- REGRAS DE RESPONSIVIDADE --- */
+
+/* Tablets (Duas imagens por vez) */
+@media (min-width: 600px) {
+  .slide-nativo {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .slide-nativo img {
+    height: 320px;
+  }
+}
+
+/* Desktop (Três imagens por vez) */
+@media (min-width: 1024px) {
+  .slide-nativo {
+    flex: 0 0 calc(33.333% - 14px);
+  }
+  .slide-nativo img {
+    height: 380px;
+  }
+  .seta-esquerda {
+    left: -20px; /* Joga as setas para fora da imagem no desktop se houver espaço */
+  }
+  .seta-direita {
+    right: -20px;
+  }
+}
