@@ -252,6 +252,102 @@ body {
     text-align: center;
 }
 
+.hero-section-vidracaria {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnKU_4flPS2QOSFptXy4glkzvOXGSQv_JVWjIo1tnR05p-5Fz55PY48Jsr1YfBEgXl_TI_wbyHUOJ2nAKnk6LFWGSQkM-hugt7YRBie2dPP-qTisIns55DUkui-SpMx4Pm8OiPI6Oj-44zl=s680-w680-h510-rw'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section-marmore {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6W-fRwx7tw3Qly8kfGNPId8hQFKaWBQXMXHhuOwyJk5EVNJ5EBRRbzDAlcT61udn2vaZQmkQHWPq8Bgo0-BrSMZuRZ6uyiTAARZSpR2EQjJbO6YETFodFdkd7hnL6V1pr9rqjDihCU0E=s680-w680-h510-rw'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section-gesso {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaKKJyo7gY7rHO8szuTJC1AgCKf9QFOiDHTvJsMxTJk2ae9igRcCMLt908r9_JPOXtMb23Kt_lBkh58arfPhnKNv4KjaZZ8RyDfBSkZTB3aPAnWYyLanfbPpFhUt-4vczXZlz-fQ8Mksce=s680-w680-h510-rw'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section-eletrica {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXwl2XbxYJcfNP_9zgudzZmT1Y6QwG1zCp_y93ESke0M-2LYlprULY6RTh&s=10'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section-automacao {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://img.magnific.com/fotos-gratis/controlo-por-ecra-tatil-de-casa-inteligente_23-2152024172.jpg?semt=ais_test_b&w=740&q=80'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section-paisagismo {
+    position: relative;
+    width: 100%;
+    /* Modificado de 100vh para 80vh para ocupar 80% da altura da tela */
+    height: 80vh; 
+    background-image: url('https://www.jardineiro.net/wp-content/uploads/2025/12/projeto-profissional-de-paisagismo-para-jardim-pequeno-08777757876346415-1024x559.jpg'); 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 /* Sombreamento Médio Preto */
 .hero-overlay {
     position: absolute;
