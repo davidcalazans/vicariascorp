@@ -518,21 +518,7 @@ body {
     position: relative;
     width: 100%;
     padding: 100px 20px;
-    background-image: url('servicos.webp'); /* Substitua pela imagem de fundo desejada */
-    background-attachment: fixed; /* Efeito Parallax */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-servicos-marcenaria-parallax {
-    position: relative;
-    width: 100%;
-    padding: 100px 20px;
-    background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkm5n6fCKBY8qBNZNIUnBn95RFboMPKsYquE7z-iIK-8xoRAVFR58kiscqa93Nd3PNzSyMFroGDexrOCIpqUX5VUEd79H1M6utBAQWmE8C0fXsPOyIaokPj0YfIelacmosIEV_PVUU-szgX=s680-w680-h510-rw'); /* Substitua pela imagem de fundo desejada */
+    background-image: url('piracicaba.jpeg'); /* Substitua pela imagem de fundo desejada */
     background-attachment: fixed; /* Efeito Parallax */
     background-position: center;
     background-repeat: no-repeat;
