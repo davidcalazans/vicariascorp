@@ -664,17 +664,17 @@ body {
     text-transform: uppercase;
 }
 
-/* Lista de Serviços Estilizada */
+/* Lista de Serviços Estilizada (agora com links) */
 .lista-servicos {
-    list-style: none;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     text-align: left;
 }
 
-.lista-servicos li {
+.item-servico {
+    display: block; /* Faz o link se comportar como bloco para ocupar o espaço correto */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
     background: rgba(255, 255, 255, 0.05);
     padding: 15px 20px;
     border-radius: 6px;
@@ -685,7 +685,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.lista-servicos li:hover {
+.item-servico:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
     color: #ffffff;
