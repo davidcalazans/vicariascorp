@@ -691,6 +691,23 @@ body {
     color: #ffffff;
 }
 
+.lista-servicos li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    border-left: 3px solid #d4af37; /* Detalhe dourado corporativo */
+    transition: all 0.3s ease;
+}
+
+.lista-servicos li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
 /* Responsividade para Celulares */
 @media (max-width: 768px) {
     .section-servicos-parallax {
