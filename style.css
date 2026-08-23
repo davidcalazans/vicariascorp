@@ -666,6 +666,8 @@ body {
 
 /* Lista de Serviços Estilizada (agora com links) */
 .lista-servicos {
+    list-style: none;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
